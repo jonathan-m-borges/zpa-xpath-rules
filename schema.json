@@ -1,0 +1,55 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "BaseRuleCategory": {
+            "type": "string",
+            "enum": [
+                "default",
+                "none"
+            ]
+        },
+        "RuleLevel": {
+            "type": "string",
+            "enum": [
+                "on",
+                "off",
+                "info",
+                "minor",
+                "major",
+                "critical",
+                "blocker"
+            ]
+        },
+        "RuleOptions": {
+            "type": "object",
+            "properties": {
+                "level": {
+                    "$ref": "#/$defs/RuleLevel"
+                },
+                "parameters": {
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "type": "object",
+    "properties": {
+        "base": {
+            "$ref": "#/$defs/BaseRuleCategory"
+        },
+        "rules": {
+            "additionalProperties": {
+                "oneOf": [
+                    {
+                        "$ref": "#/$defs/RuleLevel"
+                    },
+                    {
+                        "$ref": "#/$defs/RuleOptions"
+                    }
+                ]
+            }
+        }
+    }
+}
