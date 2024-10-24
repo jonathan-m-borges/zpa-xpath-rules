@@ -1,0 +1,1 @@
+docker build -t jonathanmborges/zpa-cli-xpath .

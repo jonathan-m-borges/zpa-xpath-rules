@@ -1,0 +1,10 @@
+[
+    {
+        "xpath": "//CREATE_TABLE",
+        "message": "CREAtE TABLE is not allowed"
+    },
+    {
+        "xpath": "//SELECT",
+        "message": "SELECT is not allowed"
+    }
+]
